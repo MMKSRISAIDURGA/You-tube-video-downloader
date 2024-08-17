@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NASWA Video Vault</title>
+    <style>
+        .search{
+            display: flex;
+            color: white;
+            background-color: purple;
+            background: radial-gradient(circle, purple, black);
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            margin: 0px;
+            padding: 0px;
+            top: 0px;
+            left: 0;
+            width: 100%;
+        }
+        .search2{
+            display: flex;
+            color: white;
+            flex-direction: row;
+            justify-content: space-between;
+            text-align: center;
+            gap: 10px;
+        }
+        body{
+            font-family: sans-serif;
+            background-size: cover;
+            background-attachment: fixed;
+            background-image: url(https://th.bing.com/th/id/OIP.GLWai5ImA1j1Z43byIByNwAAAA?rs=1&pid=ImgDetMain)
+        }
+        .google{
+            align-items: center;
+        }
+        .google input{
+            display: flex;
+            flex-direction: row;
+            justify-content: auto;
+            align-items: center;
+            background-color: white;
+            color: rgba(0, 0, 0, 0.625);
+            padding: 15px;
+            height: 24px;
+            border: 2px solid black;
+            border-radius: 6px;
+            width: 360px;
+            text-align: center;
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        header{
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        body{
+            color: white;
+            height: 100vh;
+            text-align: center;
+        }
+        .div{
+            text-align: center;
+            align-items: center;
+        }
+        ul{
+            list-style-position: inside;
+            padding-left: 0;
+            text-align: center;
+        }
+        ul li{
+            display: inline-block;
+            width: 100px;
+        }
+        .button{
+            background-color: rgb(249, 9, 9);
+            color: white;
+            width: 100px;
+            height: 40px;
+            padding: 0 1vw;
+            text-align: center;
+            border-radius: 8px;
+        }
+        .link{
+            width: 300px;
+            height: 40px;
+            padding: 0 1vw;
+            text-align: center;
+            border-radius: 8px;
+        }
+    </style>
+    <script>
+        async function downloadVideos(event) {
+            event.preventDefault();
+            const channelUrl = document.getElementById('channel_url').value;
+            const numVideos = document.getElementById('num_videos').value;
+
+            const response = await fetch('http://127.0.0.1:8000/download', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams({
+                    'channel_url': channelUrl,
+                    'num_videos': numVideos
+                })
+            });
+
+            const result = await response.json();
+            alert(result.message);
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <section>
+            <div class="search">
+                <div>
+                    <h1 class="main">NASWA Video Vault</h1>
+                </div>
+                <div class="search2">
+                    Video Downloader
+                    <div class="language">
+                        <select>
+                            <option>Telugu</option>
+                            <option>Hindi</option>
+                            <option>English</option>
+                            <option>Tamil</option>
+                        </select>
+                    </div>
+                </div>
+            </div><br>
+            <h1 style="font-size: 50px;"> Welcome to <span style="color: rgb(249, 9, 249);">NASWA</span> Video Vault</h1>
+            <br>
+            <form onsubmit="downloadVideos(event)">
+                <input type="text" class="link" placeholder="Paste The Link Here..." id="channel_url" name="channel_url" required>
+                <input type="number" class="link" placeholder="Number of Videos..." id="num_videos" name="num_videos" required>
+                <input type="submit" class="button" value="Download">
+            </form>
+            <br>
+            <h2 style="color: white; text-align: center; font-size: 15px;">🎉Try Naswa Video Vault - Access All Your Favourite Videos!👋</h2>
+            <div><br>
+                <h2>Steps to Download YouTube videos Using Naswa Video Vault:</h2>
+                <h2 style>Copy the video link</h2>
+                <img src="https://ssyoutube.com/img/steps/how_can_i_save_1.svg" alt="">
+                <p>Open the video you want to download and copy its link at the top of the screen.</p>
+                <h2>Paste the link into the input</h2>
+                <img src="https://ssyoutube.com/img/steps/how_can_i_save_2.svg" alt="">
+                <p>Then go to our website and paste the link into the input field</p>
+                <h2>Download video</h2>
+                <img src="https://ssyoutube.com/img/steps/how_can_i_save_3.svg" alt="">
+                <p>Now click on the "Download" button. That's it your video is ready.</p>
+                <br>
+                <h2 class="list">Why use our Naswa Video Vault:</h2>
+                <ul>
+                    <li>✨It is a user-friendly website.</li>
+                    <li>✨Available High-speed download.</li>
+                    <li>✨Accounts are not required.</li>
+                    <li>✨Suitable for all browsers.</li>
+                </ul>
+                <h2>Supported Platforms</h2>
+                <img src="https://cdn.windowsreport.com/wp-content/uploads/2021/04/Windows-10-Insider-Preview-Build-21354.jpg" height="150px" width="150px" alt="">
+                <img src="https://www.pixelstalk.net/wp-content/uploads/2016/10/Blue-Apple-Logo-Iphone-Wallpaper.jpg" width="150px" height="150px" alt="">
+                <br>
+                <img src="https://w0.peakpx.com/wallpaper/210/598/HD-wallpaper-android-blue-logo-blue-brickwall-android-logo-brands-android-neon-logo-android.jpg" width="150px" height="150px" alt="">
+                <img src="https://th.bing.com/th/id/OIP.fPSmEMQn7Ftfs7r6Go1W5gHaEo?rs=1&pid=ImgDetMain" width="150px" height="150px" alt="">
+                <br><br><br><br><br><br><br><br>
+            </div>
+        </section>
+    </header>
+    <main>
+        <section></section>
+    </main>
+    <footer></footer>
+</body>
+</html>
